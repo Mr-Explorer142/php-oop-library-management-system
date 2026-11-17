@@ -12,7 +12,7 @@ A simple **Library Management System** built with raw PHP, designed as a hands-o
 - Unique auto-generated IDs for books and members
 - Graceful error handling for invalid operations (e.g., borrowing beyond limits, returning a book not borrowed)
 
-## Practice Problem (Try It Yourself First! 🧠)
+## Problem Statement (Try It Yourself First before going through the codebase)
 
 Before diving into the code, treat this project as a coding challenge. Try to build the entire system from scratch based only on the description below — then compare your solution with the one in `src/`.
 
