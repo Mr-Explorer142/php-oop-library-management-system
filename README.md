@@ -12,6 +12,50 @@ A simple **Library Management System** built with raw PHP, designed as a hands-o
 - Unique auto-generated IDs for books and members
 - Graceful error handling for invalid operations (e.g., borrowing beyond limits, returning a book not borrowed)
 
+## Practice Problem (Try It Yourself First! 🧠)
+
+Before diving into the code, treat this project as a coding challenge. Try to build the entire system from scratch based only on the description below — then compare your solution with the one in `src/`.
+
+### Problem Statement
+
+Build a **Library Management System** in plain PHP (no frameworks, no database) using OOP, with the following requirements:
+
+1. **Book**
+   - Represents a book with a **title**, **author**, and **available copies**.
+   - Generates a **unique auto-generated ID** (e.g., `B-67f3a2c1e8f9`).
+   - Rejects negative copy counts in the constructor (validation).
+   - Provides methods to **borrow** and **return** a copy, updating the available-copy count safely (guard against borrowing when no copies are left, or returning when copies are already full).
+
+2. **Member (abstract base class)**
+   - Represents a library member with a **name** and a **unique auto-generated ID** (e.g., `M-...`).
+   - Cannot be instantiated directly.
+   - Tracks the list of books the member has currently borrowed.
+
+3. **StudentMember / TeacherMember**
+   - Inherit from `Member`.
+   - Both can **borrow** and **return** books (same contract, different behavior — polymorphism).
+   - Students may borrow at most **3 books**; teachers at most **10 books**. Attempting to exceed the limit must throw an exception.
+
+4. **Library**
+   - Manages collections of **books** and **members**.
+   - Supports adding books/members and displaying all of them with their details.
+
+5. **Error handling**
+   - Invalid operations (borrowing beyond limits, returning a book not borrowed, borrowing a book with no copies left) must throw exceptions that are caught and displayed gracefully in the entry point (`index.php`).
+
+### Hints
+
+- Use an **interface** (e.g., `Borrowable`) to define the borrow/return contract.
+- Use a **trait** for the unique ID generation logic, shared by both `Book` and `Member`.
+- Use **typed properties**, **strict types**, and **constructor property promotion** where possible.
+- Structure the code with **namespaces** and a **PSR-4 autoloader** (Composer).
+
+### Acceptance Criteria
+
+Your solution should reproduce the demo flow in `index.php`: add books and members to the library, have a teacher borrow a copy of *Clean Code*, watch the available copies drop from 2 to 1, return the book, and see it go back to 2 — all while invalid operations fail gracefully with exceptions.
+
+Once you've given it an honest attempt (or if you get stuck), read through the source in `src/` and the **Concepts Covered** table below to see how each piece maps to the OOP concepts.
+
 ## PHP OOP Concepts Covered
 
 | # | Concept | Where It Is Used |
