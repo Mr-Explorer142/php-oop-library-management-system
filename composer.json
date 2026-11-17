@@ -1,0 +1,10 @@
+{
+  "name": "mr.explorer/library-management-system",
+  "description": "This is a raw php based simple library management system.",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}
